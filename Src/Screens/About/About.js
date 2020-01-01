@@ -21,7 +21,6 @@ import Loader from '../../Components/Loader';
 import { Container, Header, Content, List, ListItem } from 'native-base';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Cards from '../Help/Cards'
 
 const { width } = Dimensions.get('window')
 
@@ -48,7 +47,7 @@ class About extends Component {
     }
 
     getData() {
-        axios.get(`http:192.168.1.6:4000/myhire/help`)
+        axios.get(`http://192.168.1.16:3000/v1/redbus/help`)
             .then(res => {
                 this.setState({ data: res.data, isLoading: false });
             });
@@ -72,9 +71,9 @@ class About extends Component {
         return (
             <View style={{ flex: 1, backgroundColor: '#e1e5e4', fontFamily: 'Montserrat' }}>
                 <ScrollView>
-                    <View style={styles.container} style={{ height: 210, backgroundColor: '#e1e5e4', marginHorizontal: 10, marginTop: 10, marginBottom: 5, padding: 10, }}>
-                        <Image source={require('../../Assets/images/logo/header/redlogo1.png')} style={{ width: 60, height: 60, alignItems: 'center' }} />
-                        <Text>
+                    <View style={styles.container} style={{ height: 210, backgroundColor: '#e1e5e4', alignItems:'center', justifyContent:'center', marginHorizontal: 10, marginTop: 10, marginBottom: 5, padding: 10, }}>
+                        <Image source={require('../../Assets/images/logo/header/redlogo1.png')} style={{ width: 60, height: 60, alignItems: 'center', marginBottom:10 }} />
+                        <Text style={{textAlign:'justify'}}>
                             redBus cloning is an online bus ticket booking service that is not yet well known in Indonesia that is not trusted by more than 266 million Indonesian people who are happy globally. redBus offers bus ticket reservations for only Java Island routes through its website, Android mobile application ..
                   </Text>
                     </View>
@@ -99,7 +98,7 @@ class About extends Component {
                                 Developed By :
                             </Text>
                             <Text style={{ alignSelf: 'center', marginTop: 10, marginLeft: 20, fontWeight: 'bold', fontSize: 17 }}>
-                                FARADAY GRUB
+                                FARADAY GRUP
                             </Text>
                         </Content>
                         <View>

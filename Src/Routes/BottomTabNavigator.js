@@ -3,22 +3,23 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Home from '../Screens/Home';
-import Help from '../Screens/Help/Help';
-import Ops from '../Screens/404/ops';
-import About from '../Screens/About/About';
-import Bus from '../Screens/404/Bus';
+import AccountPage from './AccountPage';
+import HomePage from './HomePage';
+// import MyBooking from '../Screens/MyBooking/Tabs';
+import MyBookingPage from './MyBookingPage';
+import HelpPage from './HelpPage';
 
 const BottomTabNavigator = createBottomTabNavigator({
-  Home: Home,
+  Home: HomePage,
   'My Bookings': {
-    screen: Bus,
+    screen: MyBookingPage,
+    
   },
   Help: {
-    screen: Help,
+    screen: HelpPage,
   },
   'My Account': {
-    screen: About,
+    screen: AccountPage,
   },
 }, {
   defaultNavigationOptions: ({ navigation }) => ({

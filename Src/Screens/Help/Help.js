@@ -22,8 +22,7 @@ import Loader from '../../Components/Loader';
 import { Row } from 'native-base';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { ListItem } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Cards from '../Help/Cards'
+
 
 const { width } = Dimensions.get('window')
 
@@ -50,7 +49,7 @@ class Help extends Component {
     }
 
     getData() {
-        axios.get(`http:192.168.1.4:4000/myhire/help`)
+        axios.get(`http://18.233.99.1:2500/v1/redbus/help`)
         .then(res => {
           this.setState({ data: res.data , isLoading: false});
         });
@@ -73,8 +72,8 @@ class Help extends Component {
 
         return (
             <View style={{ flex: 1, backgroundColor: '#e1e5e4', fontFamily: 'Montserrat' }}>
-                <ScrollView>
-                <View style={{ height: 170, backgroundColor: '#ffffff', marginHorizontal: 10, marginTop: 10, marginBottom: 5, padding: 10 }}>
+                {/* <ScrollView> */}
+                {/* <View style={{ height: 170, backgroundColor: '#ffffff', marginHorizontal: 10, marginTop: 10, marginBottom: 5, padding: 10 }}>
                     <Text style={{ alignSelf: 'center', marginTop: 10 }}>For which booking do u need help?</Text>
                     <View style={styles.fixToText}>
                         <Picker
@@ -105,14 +104,14 @@ class Help extends Component {
                             onPress={() => Alert.alert('Simple Button pressed')}
                         />
                     </View>
-                </View>
-                <View>
+                </View> */}
+                {/* <View>
                     <Text style={styles.or}>OR</Text>
-                </View>
-                <View>
+                </View> */}
+                <View style={{marginTop:10}}>
                     <Text style={styles.add}>Additional Topics</Text>
                 </View>
-                <View style={{ height: 370, backgroundColor: '#ffffff', marginHorizontal: 10, marginTop: 10, marginBottom: 5, padding: 10 }}>
+                <View style={{ backgroundColor: '#ffffff', marginHorizontal: 10, marginTop: 10, marginBottom: 20, padding: 10 }}>
 
                     <FlatList
 
@@ -130,7 +129,7 @@ class Help extends Component {
                         ItemSeparatorComponent={this.renderSeparator}
                     />
                 </View>
-                </ScrollView>
+                {/* </ScrollView> */}
             </View>
         );
     }
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         fontFamily: 'Montserrat',
         fontWeight: 'bold',
-        color: 'black'
+        color: 'gray'
     },
     container: {
         flex: 1,

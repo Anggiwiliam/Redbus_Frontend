@@ -13,10 +13,6 @@ import {
   SafeAreaView,
   List
 } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Loader from '../../Components/Loader';
-import { Row } from 'native-base';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { ListItem } from 'react-native-elements'
 
 const { width } = Dimensions.get('window')
@@ -46,7 +42,7 @@ class Questions extends Component {
   }
 
   getData() {
-    axios.get('http:192.168.0.101:4000/myhire/answer/' + this.props.navigation.state.params.idcategory)
+    axios.get('http://18.233.99.1:2500/v1/redbus/answer/' + this.props.navigation.state.params.idcategory)
     .then(res => {
       this.setState({ data: res.data , isLoading: false});
       

@@ -16,13 +16,7 @@ import {
   Button,
   ScrollView
 } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Loader from '../../Components/Loader';
-import { Row } from 'native-base';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { ListItem } from 'react-native-elements'
 
-const { width } = Dimensions.get('window')
 
 class Answer extends Component {
   constructor(props) {
@@ -51,7 +45,7 @@ class Answer extends Component {
   async getData() {
     try {
        
-        const profile = await axios.get('http:192.168.0.101:4000/myhire/detail/' + this.props.navigation.state.params.iddetail)
+        const profile = await axios.get('http://18.233.99.1:2500/v1/redbus/detail/' + this.props.navigation.state.params.iddetail)
         console.log(profile);
 
         await this.setState({
@@ -147,7 +141,7 @@ const styles = StyleSheet.create({
   },
   Button:{
     height: 45,
-    marginTop: 20,
+    marginTop: 10,
     marginLeft:20,
     marginRight:20,
    

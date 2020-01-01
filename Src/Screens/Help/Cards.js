@@ -10,7 +10,7 @@ class Cards extends Component {
     render() {
         return (
            
-            <View style={{ width: 250,borderRadius:5,  flexDirection:'row', backgroundColor: '#ffffff', marginHorizontal: 10,  padding: 10 }}>
+            <View style={{ width: 250,borderRadius:5,  flexDirection:'row', backgroundColor: '#ffffff', marginHorizontal: 5,  padding: 10 }}>
                 <View style={{ flex:1, alignItems:'center', justifyContent:'center' }}>
                     <Image source={this.props.imageUri}
                         style={{ width: 50, height: 50, resizeMode: 'cover' }}

@@ -1,7 +1,7 @@
 
 const axios = require('axios')
 const instance = axios.create({
-  baseURL: "http://192.168.1.16:3000/v1/redbus/"
+  baseURL: "http://18.233.99.1:2500/v1/redbus/"
   // headers: {'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOTMwMDU4ZDctZmRlYi00NmNmLWFmYTUtNTgyNGE0MzViZDkxIiwidXNlcm5hbWUiOiJlcmRpbnN1aGFyeWFkaSIsImVtYWlsIjoiZXJkaW5zdWhhcnlhZGlAZ21haWwuY29tIiwibGV2ZWwiOiIxIiwiaWF0IjoxNTc0OTMzMDI4LCJleHAiOjE1NzUwMTk0Mjh9.STC3JCrWyDs672IcASBOaHUoXRkiOz4RNj_hFZSZD6k'}  
 });
 
@@ -11,8 +11,10 @@ module.exports = {
     return instance
   },
 
-  axiosGet(url) {
+  axiosGet(url, token = null) {
+    instance.defaults.headers.get['Authorization'] = token
     return instance.get(url)
+
   },
 
   
@@ -31,8 +33,9 @@ module.exports = {
     })
   },
 
-  axiosPut: (url, body) => {
+  axiosPut: (url, body, token= null) => {
     instance.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded'
+    instance.defaults.headers.put['Authorization'] = token
     return new Promise((resolve, reject) => {
       instance.put(url, body)
         .then(result => {
